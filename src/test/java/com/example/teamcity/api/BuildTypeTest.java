@@ -104,10 +104,6 @@ public class BuildTypeTest extends BaseApiTest{
         var project2 = newTestData.getProject();
         superUserCheckRequest.getRequest(PROJECTS).create(project2);
 
-        //generating and creating user2 with project admin role
-        newTestData.getUser().setRoles(generate(Roles.class, "PROJECT_ADMIN", "p:" + newTestData.getProject().getId()));
-        superUserCheckRequest.getRequest(USERS).create(newTestData.getUser());
-
         //creating buildType2 by project admin1
         var userUnCheckRequests = new UncheckedRequests(Specifications.authSpec(testData.getUser()));
         userUnCheckRequests.getRequest(BUILD_TYPES).create(newTestData.getBuildType())
