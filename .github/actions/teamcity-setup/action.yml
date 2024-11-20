@@ -10,6 +10,7 @@ runs:
         distribution: 'zulu'
 
     - name: Grant execute permission to Maven wrapper
+      shell: bash
       run: chmod +x mvnw
 
     # По умолчанию в ubuntu отсутствие команда ifconfig
