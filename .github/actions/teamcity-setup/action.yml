@@ -9,6 +9,9 @@ runs:
         java-version: '17'
         distribution: 'zulu'
 
+    - name: Grant execute permission to Maven wrapper
+      run: chmod +x mvnw
+
     # По умолчанию в ubuntu отсутствие команда ifconfig
     - name: Install ifconfig
       shell: bash

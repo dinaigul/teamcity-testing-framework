@@ -3,28 +3,16 @@ name: TeamCity deployment
 on: push
 
 jobs:
-  pre-run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Grant execute permission to Maven wrapper globally
-        run: chmod +x mvnw
-    outputs:
-      pre-setup-complete: "true"
 #  # Собирается бекенд и деплоится на стейдж/review app
 #  backend:
-#    needs: [pre-run]
 #    uses: ./.github/workflows/backend-stage.yml
 #
 #  # Собирается фронтенд и деплоится на стейдж/review app
 #  frontend:
-#    needs: [pre-run]
 #    uses: ./.github/workflows/frontend-stage.yml
 
   # Прогоняются API тесты
   automation-api:
-    needs: pre-run
     #    needs: [ backend, frontend ]
     uses: ./.github/workflows/automation.yml
     with:
@@ -33,7 +21,6 @@ jobs:
   # Прогоняются UI тесты
   automation-ui:
 #    needs: [ backend, frontend ]
-    needs: pre-run
     uses: ./.github/workflows/automation.yml
     with:
       package: ui
