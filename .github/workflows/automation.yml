@@ -77,7 +77,7 @@ jobs:
         if: always()
         with:
           gh_pages: gh-pages
-          allure_history: gh-pages/allure-history #allure-history
+          allure_history: allure-history
           allure_results: target/allure-results
           subfolder: ${{ inputs.package }}
 
@@ -88,4 +88,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: gh-pages #allure-history
+          publish_dir: allure-history
