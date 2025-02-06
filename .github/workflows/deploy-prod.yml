@@ -1,0 +1,17 @@
+name: Deploy to prod
+
+on: workflow_call
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy backend to prod
+        run: echo Происходит деплой бэкенда
+
+  deploy-stage:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy frontend to prod
+        run: echo Происходит деплой фронтенда
